@@ -1,11 +1,14 @@
 
 // Declare card symbols
 let cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
+
 // Create array to hold opened cards
 let openCard = [];
 let moves = 0;
 let starts = 3;
 let matchFound = 0;
+let startGame = false;
+
 // Shuffle cards (function from http://stackoverflow.com/a/2450976)
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -34,6 +37,8 @@ function findMatch() {
   $(".card").on("click", function() {
     $(this).toggleClass("flipInY open show");
     openCard.push($(this));
+    startGame = true;
+
    // Check if classlist matches when openCard length == 2
     if (openCard.length === 2) {
       if (openCard[0][0].classList[2] === openCard[1][0].classList[2]) {
@@ -57,8 +62,22 @@ function findMatch() {
  })
 }
 
+function startTimer() {
+  if (startGame === true) {
+  }
+}
+
+function endTimer() {
+  var endTime = new Date() - startTimer();
+}
+
 // Update HTML with number of moves
 function updateMoves() {
+  if (moves === 1) {
+    $("#movesText").text(" Move");
+  } else {
+    $("#movesText").text(" Moves");
+  }
   $("#moves").text(moves.toString());
 }
 
@@ -88,6 +107,7 @@ function disableClick() {
 shuffle(cards);
 createCard();
 findMatch();
+startTimer();
 
 // Function to restart the game on icon click
 function restartGame() {
