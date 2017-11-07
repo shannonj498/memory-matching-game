@@ -1,7 +1,10 @@
 
 // Declare card symbols
 let cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
-
+// Create array to hold opened cards
+let openCard = [];
+let moves = 0;
+let starts = 3;
 // Shuffle cards (function from http://stackoverflow.com/a/2450976)
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -18,15 +21,11 @@ function shuffle(array) {
 
 // Create each card's HTMl
 function createCard() {
-  for (var i = 0; i < cards.length; i++) {
-    let getCards = shuffle(cards);
-    $(".deck").append('<li><i class="card fa ' + getCards[i] + '"></i></li>');
-  }
+  let cardList = shuffle(cards);
+  cardList.forEach(function(card) {
+    $(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
+  })
 }
-
-
-// Create array to hold opened cards
-let openCard = [];
 
 // Logic to find matching cards
 function findMatch() {
@@ -34,9 +33,9 @@ function findMatch() {
   $(".card").on("click", function() {
     $(this).toggleClass("flipInY open show");
     openCard.push($(this));
-    disableClick();
    // Check if classlist matches when openCard length == 2
     if (openCard.length === 2) {
+      enableClick();
       if (openCard[0][0].classList[2] === openCard[1][0].classList[2]) {
       openCard[0][0].classList.add("bounceIn", "match");
       openCard[1][0].classList.add("bounceIn", "match");
@@ -46,9 +45,9 @@ function findMatch() {
       openCard[0][0].classList.add("shake", "wrong");
       openCard[1][0].classList.add("shake", "wrong");
       // Set timeout to remove "show" and "open" class
-      setTimeout(removeClasses, 1300);
+      setTimeout(removeClasses, 1100);
       // Reset openCard.length to 0
-      setTimeout(removeOpenCards, 1300);
+      setTimeout(removeOpenCards, 1100);
     }
   }
  })
@@ -59,12 +58,7 @@ function removeOpenCards() {
   openCard = [];
 }
 
-function removeWrongClass() {
-  openCard[0][0].classList.remove("shake", "wrong");
-  openCard[1][0].classList.remove("shake", "wrong");
-}
-
-// Remove "show" and "open" classes
+// Remove all classes except "match"
 function removeClasses() {
   $(".card").removeClass("show open flipInY bounceIn shake wrong");
   removeOpenCards();
@@ -72,17 +66,31 @@ function removeClasses() {
 
 // Disable clicks
 function disableClick() {
-  $(openCard).click(function() {
-    return false
-  });
-}
+ openCard.forEach(function (card) {
+   card.off("click");
+ })
+  }
 
+  function enableClick() {
+  $(".card").on("click");
+  }
 
 
 // Call functions
 shuffle(cards);
 createCard();
 findMatch();
+
+
+// Function to restart the game on icon click
+function restartGame() {
+  $("#restart").on("click", function() {
+      location.reload()
+  });
+  }
+
+restartGame();
+
 
 
 /*
