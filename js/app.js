@@ -5,6 +5,7 @@ let cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o",
 let openCard = [];
 let moves = 0;
 let starts = 3;
+let matchFound = 0;
 // Shuffle cards (function from http://stackoverflow.com/a/2450976)
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -35,10 +36,11 @@ function findMatch() {
     openCard.push($(this));
    // Check if classlist matches when openCard length == 2
     if (openCard.length === 2) {
-      enableClick();
       if (openCard[0][0].classList[2] === openCard[1][0].classList[2]) {
       openCard[0][0].classList.add("bounceIn", "match");
       openCard[1][0].classList.add("bounceIn", "match");
+      matchFound += 1;
+      moves++;
       removeOpenCards();
     } else {
       // If classes don't match, add "wrong" class
@@ -48,9 +50,16 @@ function findMatch() {
       setTimeout(removeClasses, 1100);
       // Reset openCard.length to 0
       setTimeout(removeOpenCards, 1100);
+      moves++;
     }
   }
+ updateMoves();
  })
+}
+
+// Update HTML with number of moves
+function updateMoves() {
+  $("#moves").text(moves.toString());
 }
 
 // Reset openCard.length to 0
@@ -75,12 +84,10 @@ function disableClick() {
   $(".card").on("click");
   }
 
-
 // Call functions
 shuffle(cards);
 createCard();
 findMatch();
-
 
 // Function to restart the game on icon click
 function restartGame() {
