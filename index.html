@@ -28,7 +28,7 @@
           	<span class="moves" id="moves">0</span><span id="movesText"> Moves</span>
           </div>
           <div id="timer"><span id="timer-text">Timer: </span>
-            <label id="minutes">00</label>:<label id="seconds">00</label></div>
+            <label class="minutes">00</label>:<label class="seconds">00</label></div>
           <div class="restart" id="restart">
         		<span id="restart-text">Restart: </span><i class="fa fa-repeat"></i>
         	</div>
@@ -37,6 +37,23 @@
         <ul class="deck">
         </ul>
     </div>
+
+    <!-- Winner Popup source: www.w3schools.com -->
+    <div id="win-popup" class="popup zoomIn">
+
+      <!-- Popup content -->
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <h1>Congratulations!</h1>
+        <h3>You completed the game in <span class="minutes">0</span> minutes and <span class="seconds">0</span> seconds.</h3>
+        <h3>Total moves: <span id="total-moves">0</span><span id="star-rating-text"> Star Rating: </span><span id="total-stars">0</span></h3>
+        <button type="button" class="button" id="play-again-btn">
+          Play again!
+        </button>
+      </div>
+
+    </div>
+
 
     <script src="js/app.js"></script>
 </body>
