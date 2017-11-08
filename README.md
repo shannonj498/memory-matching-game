@@ -1,20 +1,13 @@
 # Memory Game Project
 
-## Table of Contents
+A [Udacity](www.udacity.com) project using HTMl, CSS, JavaScript and jQuery.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## How To Play:
 
-## Instructions
+This is a memory matching card game. The goal is to match each card's icon with its pair. There are 16 cards and 8 pairs total. Click on a card, remember its icon and spot in the grid, then continue clicking other cards until you find its match. The game ends once all pairs are matched.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Keep track of progress in the score panel area by viewing the star raiting, how many moves have been made, and how long it takes to finish the game.
 
-To get started, open `js/app.js` and start building out the app's functionality
+To play the game, click [here](https://shannonj498.github.io/memory-matching-game/).
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Have fun and enjoy! 
