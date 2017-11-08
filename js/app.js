@@ -8,6 +8,7 @@ let moves = 0;
 let starts = 3;
 let matchFound = 0;
 let startGame = false;
+let starRating;
 
 // Shuffle cards (function from http://stackoverflow.com/a/2450976)
 function shuffle(array) {
@@ -20,7 +21,7 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-  return array;
+    return array;
 }
 
 // Create each card's HTMl
@@ -47,7 +48,7 @@ function findMatch() {
       matchFound += 1;
       moves++;
       removeOpenCards();
-    } else {
+      } else {
       // If classes don't match, add "wrong" class
       openCard[0][0].classList.add("shake", "wrong");
       openCard[1][0].classList.add("shake", "wrong");
@@ -56,15 +57,10 @@ function findMatch() {
       // Reset openCard.length to 0
       setTimeout(removeOpenCards, 1100);
       moves++;
+      }
     }
-  }
- updateMoves();
- })
-}
-
-function startTimer() {
-  if (startGame === true) {
-  }
+  updateMoves();
+  })
 }
 
 function endTimer() {
@@ -79,6 +75,29 @@ function updateMoves() {
     $("#movesText").text(" Moves");
   }
   $("#moves").text(moves.toString());
+
+  if (moves >= 16 && moves <= 20) {
+    $("#starOne").removeClass("fa-star");
+    $("#starOne").addClass("fa-star-half");
+    starRating = "2.5";
+  } else if (moves >= 21 && moves <= 25) {
+    $("#starOne").removeClass("fa-star-half");
+    starRating = "2";
+  } else if (moves >= 26 && moves <= 30) {
+    $("#starTwo").removeClass("fa-star");
+    $("#starTwo").addClass("fa-star-half");
+    starRating = "1.5";
+  } else if (moves >= 31 && moves <= 35) {
+    $("#starTwo").removeClass("fa-star-half");
+    starRating = "1";
+  } else if (moves >= 36 && moves <= 41) {
+    $("#starThree").removeClass("fa-star");
+    $("#starThree").addClass("fa-star-half");
+    starRating = "0.5";
+  } else if (moves > 41) {
+    $("starThree").removeClass("fa-star-half");
+    starRating = "0";
+  }
 }
 
 // Reset openCard.length to 0
@@ -96,12 +115,24 @@ function removeClasses() {
 function disableClick() {
  openCard.forEach(function (card) {
    card.off("click");
- })
-  }
+  })
+}
 
-  function enableClick() {
-  $(".card").on("click");
-  }
+// Start timer on the first card click
+function startTimer() {
+  let clicks = 0;
+  $(".card").on("click", function() {
+    clicks += 1;
+    if (clicks === 1) {
+      var sec = 0;
+      function pad ( val ) { return val > 9 ? val : "0" + val; }
+      setInterval( function(){
+        $("#seconds").html(pad(++sec%60));
+        $("#minutes").html(pad(parseInt(sec/60,10)));
+      }, 1000);
+    }
+  })
+ }
 
 // Call functions
 shuffle(cards);
@@ -117,7 +148,6 @@ function restartGame() {
   }
 
 restartGame();
-
 
 
 /*
