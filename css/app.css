@@ -132,6 +132,103 @@ h1 {
   color: #764F92;
 }
 
+/* The Modal (background) */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 0; /* Location of the box */
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.popup-content {
+    background-color: white;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #888;
+    text-align: center;
+    font-family: 'Helvetica';
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 1.5s;
+    animation-name: animatetop;
+    animation-duration: 1.5s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.popup-content h1 {
+  font-size: 3em;
+  padding-top: 4em;
+  color: #18bf8f;
+  font-weight: bolder;
+}
+
+.popup-content h3 {
+  font-weight: normal;
+  color: #4f4f4f;
+}
+
+#play-again-btn {
+  background-color: #8c4ed6;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  box-shadow: 7px 7px 30px #999999;
+  transition: box-shadow 0.5s;
+}
+
+#play-again-btn:hover {
+  box-shadow: 3px 3px 8px #6F6F6F;
+  background-color: #9759E3;
+  cursor: pointer;
+}
+
+#star-rating-text {
+  padding-left: 15px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+ * Media queries
+ */
+
 @media only screen and (max-width: 780px) {
   .deck {
     max-width: 300px;
@@ -157,10 +254,42 @@ h1 {
     margin: 0;
     padding: 10px 0;
   }
+}
 
+#win-popup.zoomIn {
+  animation-delay: 1s;
 }
 
 /* Animation by theappguruz.com */
+#win-popup.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+  @keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+
 .deck .card.flipInY {
 -webkit-backface-visibility: visible !important;
 backface-visibility: visible !important;
