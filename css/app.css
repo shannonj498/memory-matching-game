@@ -92,8 +92,10 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 545px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .score-panel .stars {
@@ -104,13 +106,20 @@ h1 {
 }
 
 .score-panel .stars li {
-    list-style: none;
+    list-style-type: none;
     display: inline-block;
 }
 
 .score-panel .restart {
-    float: right;
     cursor: pointer;
+}
+
+#restart i {
+  padding-left: 5px;
+}
+
+#timer {
+  display: inline-block;
 }
 
 @media only screen and (max-width: 780px) {
