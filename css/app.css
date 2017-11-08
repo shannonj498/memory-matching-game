@@ -19,6 +19,7 @@ body {
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    color: #393939;
 }
 
 .container {
@@ -29,7 +30,7 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-weight: 300;
 }
 
@@ -103,6 +104,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    color: #ffcd00;
 }
 
 .score-panel .stars li {
@@ -122,6 +124,14 @@ h1 {
   display: inline-block;
 }
 
+#timer-text {
+  color: #058A8c;
+}
+
+#restart-text {
+  color: #764F92;
+}
+
 @media only screen and (max-width: 780px) {
   .deck {
     max-width: 300px;
@@ -137,8 +147,17 @@ h1 {
 
   .score-panel {
     max-width: 70%;
-    padding-bottom: 15px;
+    padding-bottom: 0;
+    display: block;
+    text-align: center;
+    line-height: 1.7em;
   }
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+  }
+
 }
 
 /* Animation by theappguruz.com */
