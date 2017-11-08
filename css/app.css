@@ -132,7 +132,7 @@ h1 {
   color: #764F92;
 }
 
-/* The Modal (background) */
+/* Winning Popup */
 .popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -148,14 +148,12 @@ h1 {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .popup-content {
     background-color: white;
     margin: 0 auto;
     height: 100%;
     width: 100%;
     padding: 20px;
-    border: 1px solid #888;
     text-align: center;
     font-family: 'Helvetica';
     -webkit-animation-name: animatetop;
