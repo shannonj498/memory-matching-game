@@ -45,6 +45,8 @@ function findMatch() {
       if (openCard[0][0].classList[2] === openCard[1][0].classList[2]) {
       openCard[0][0].classList.add("bounceIn", "match");
       openCard[1][0].classList.add("bounceIn", "match");
+      $(openCard[0]).off('click');
+      $(openCard[1]).off('click');
       matchFound += 1;
       moves++;
       removeOpenCards();
