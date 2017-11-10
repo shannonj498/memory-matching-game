@@ -81,13 +81,10 @@ function updateMoves() {
   } else if (moves >= 16 && moves <= 20) {
     $("#starOne").removeClass("fa-star");
     starRating = "2";
-  } else if (moves >= 21 && moves <= 25) {
+  } else if (moves > 20) {
     $("#starTwo").removeClass("fa-star");
     starRating = "1";
-  } else if (moves > 25) {
-    $("#starThree").removeClass("fa-star");
-    starRating = "0";
-  } 
+  }
 }
 
 
