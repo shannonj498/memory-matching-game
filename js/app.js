@@ -37,6 +37,7 @@ function createCard() {
 function findMatch() {
   // Show cards on click
   $(".card").on("click", function() {
+    if ($(this).hasClass("open show")) { return; }
     $(this).toggleClass("flipInY open show");
     openCard.push($(this));
     startGame = true;
