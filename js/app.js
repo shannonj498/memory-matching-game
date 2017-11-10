@@ -80,26 +80,14 @@ function updateMoves() {
     starRating = starRating;
   } else if (moves >= 16 && moves <= 20) {
     $("#starOne").removeClass("fa-star");
-    $("#starOne").addClass("fa-star-half");
-    starRating = "2.5";
-  } else if (moves >= 21 && moves <= 25) {
-    $("#starOne").removeClass("fa-star-half");
     starRating = "2";
-  } else if (moves >= 26 && moves <= 30) {
+  } else if (moves >= 21 && moves <= 25) {
     $("#starTwo").removeClass("fa-star");
-    $("#starTwo").addClass("fa-star-half");
-    starRating = "1.5";
-  } else if (moves >= 31 && moves <= 35) {
-    $("#starTwo").removeClass("fa-star-half");
     starRating = "1";
-  } else if (moves >= 36 && moves <= 41) {
+  } else if (moves > 25) {
     $("#starThree").removeClass("fa-star");
-    $("#starThree").addClass("fa-star-half");
-    starRating = "0.5";
-  } else if (moves > 41) {
-    $("starThree").removeClass("fa-star-half");
     starRating = "0";
-  }
+  } 
 }
 
 
